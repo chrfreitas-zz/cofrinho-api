@@ -7,9 +7,9 @@ services:
       # target: development
     volumes:
       - .:/src
-      - /src/node_modules
+      - /node_modules
     ports:
-      - 3000:3000
+      - 4000:3000
     command: yarn start
 
     depends_on:
