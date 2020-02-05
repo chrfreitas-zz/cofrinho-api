@@ -11,7 +11,7 @@ services:
       - /node_modules
     ports:
       - 4000:3000
-    command: yarn start
+    command: yarn start:dev
     depends_on:
       - postgres
   postgres:

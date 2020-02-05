@@ -10,17 +10,11 @@ export class GoalService {
     private readonly goalRepository: Repository<Goal>,
   ) {}
 
-  save(): Promise<Goal[]> {
-    return this.goalRepository.save([
-      {
-        name: 'viagem',
-        date: '12-12-2019',
-        value: 123,
-      },
-    ]);
+  save(goal: Goal): Promise<Goal[]> {
+    return this.goalRepository.save([goal]);
   }
 
-  find(): Promise<Goal[]> {
+  getAll(): Promise<Goal[]> {
     return this.goalRepository.find();
   }
 }

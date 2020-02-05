@@ -1,17 +1,20 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Req } from '@nestjs/common';
+import { Request } from 'express';
+import { Goal } from './goal.entity';
 import { GoalService } from './goal.service';
 
 @Controller('goal')
 export class GoalController {
   constructor(private readonly goalService: GoalService) {}
 
-  @Get('save')
-  save(): any {
-    return this.goalService.save();
+  @Post()
+  save(@Req() request: Request): any {
+    return console.log(request.body);
+    // return this.goalService.save(request.body);
   }
 
-  @Get('find')
-  find(): any {
-    return this.goalService.find();
+  @Get()
+  getAll(): Promise<Goal[]> {
+    return this.goalService.getAll();
   }
 }
